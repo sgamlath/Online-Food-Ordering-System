@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+        <title>Fast Foods Online</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="js/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="js/functions.js"></script>
+
+</head>
+
+<body>
+
+        <div class="container">
+
+                <div id="login" style="width:500px">
+                        <div class="form-group"></div>
+                        <div class="form-group">
+                                <label for="un">Username</label>
+                                <input id="un" type="text" class="form-control" placeholder="Username">
+                        </div>
+
+                        <div class="form-group">
+                                <label for="pw">Password</label>
+                                <input id="pw" type="password" class="form-control" placeholder="Password">
+                        </div>
+
+                        <div class="form-group">
+                                <button class="btn btn-primary" onclick="login()">Login</button>
+                                <label style="color:red" id="loginErr"></label>
+                        </div>
+
+                        <input id="cName" type="hidden">
+                        <input id="cPoints" type="hidden">
+
+                </div>
+
+
+                <div id="ordering">
+
+                        <div style="text-align:right">
+                                <label id="CusName">
+                                </label>
+                                <label>
+                                        <a href="index.html">Log Out</a>
+                                </label>
+                        </div>
+
+
+                        <h2>Order Your Foods Online</h2>
+
+                        <script>getDetails()</script>
+
+                        <div class="form-group">
+                                <label>Food Item</label>
+                                <select class="form-control" id="foodList">
+                                        <!-- Food items get loaded here -->
+                                </select>
+                        </div>
+
+                        <div class="form-group">
+                                <label>Quantity</label>
+                                <input class="form-control" type="number" id="qty" size="2" min="1" max="10" onchange="checkAddability()" />
+                        </div>
+
+                        <div id="addable" class="form-group">
+                                <button class="btn btn-primary" onclick="addToCart()">Add</button>
+                                <script>
+                                        $("#addable").hide();
+                                </script>
+                        </div>
+
+
+                        <div class="form-group">
+
+                                <table class="table">
+                                        <tbody id="OrderList">
+                                                <tr>
+                                                        <th>Food Item</th>
+                                                        <th>Quantity</th>
+                                                        <th>Price</th>
+                                                </tr>
+
+                                                <tr id="lastRow">
+                                                        <th>Total</th>
+                                                        <th></th>
+                                                        <th id="totalAmount">0</th>
+                                                </tr>
+
+                                                <tr>
+                                                        <th>Loyalty Points</th>
+                                                        <th></th>
+                                                        <th id="loPoints"></th>
+
+                                                </tr>
+
+                                        </tbody>
+                                </table>
+
+                        </div>
+
+
+                        <div class="form-group" id="payable">
+                                <button class="btn btn-primary" onclick="mobilePayForm()">Mobile Payment</button>
+                                <button class="btn btn-primary" onclick="creditPayForm()">Credit Card Payment</button>
+                                <script>
+                                        $("#payable").hide();
+                                </script>
+
+                        </div>
+
+                        <div class="form-group" id="mobilePaymentDetails">
+                                <div class="form-group">
+                                        <label>Phone Number</label>
+                                        <input class="form-control" placeholder="Phone Number" type="number" id="phone" size="10" onchange="checkMobPayability()"
+                                        />
+                                </div>
+                                <div class="form-group">
+                                        <label>Pin</label>
+                                        <input class="form-control" placeholder="Pin Number" type="number" id="pin" size="4" onchange="checkMobPayability()" />
+                                </div>
+
+                                <div id="mobPayable" class="form-group">
+                                        <button class="btn btn-primary" onclick="mobilePay()">Pay</button>
+                                        <script>
+                                                $("#mobPayable").hide();
+                                        </script>
+                                </div>
+
+                                <script>
+                                        $("#mobilePaymentDetails").hide();
+                                </script>
+                        </div>
+
+                        <div class="form-group" id="creditPaymentDetails">
+                                <div class="form-group">
+                                        <div class="form-group">
+                                                <label>Credit Card Number</label>
+                                                <input class="form-control" placeholder="Credit Card Number" type="number" id="ccNo" size="19" onchange="checkCredPayability()"
+                                                />
+                                        </div>
+                                        <div class="form-group">
+                                                <label>CVC</label>
+                                                <input class="form-control" placeholder="CVC" type="number" id="cvc" size="3" onchange="checkCredPayability()" />
+                                        </div>
+                                        <div class="form-group">
+                                                <label>Card Holder's Name</label>
+                                                <input class="form-control" placeholder="Card Holder's Name" type="text" id="holder" onchange="checkCredPayability()" />
+                                        </div>
+
+                                        <div id="credPayable" class="form-group">
+                                                <button class="btn btn-primary" onclick="creditPay()">Pay</button>
+                                                <script>
+                                                        $("#credPayable").hide();
+                                                </script>
+                                        </div>
+
+                                        <script>
+                                                $("#creditPaymentDetails").hide();
+                                        </script>
+                                </div>
+                        </div>
+                </div>
+                <script>
+                        $("#ordering").hide();
+                </script>
+                <div id="done">
+                        <h3 id="message"></h3>
+                        <label>
+                                <a href="index.html">Back to Shop</a>
+                        </label>
+
+
+                </div>
+                <script>
+                        $("#done").hide();
+                </script>
+        </div>
+</body>
+
+</html>

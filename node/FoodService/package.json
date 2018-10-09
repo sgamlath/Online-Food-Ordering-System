@@ -1,0 +1,17 @@
+{
+  "name": "foodservice",
+  "version": "1.0.0",
+  "description": "Food service to serve food to the customers",
+  "main": "FoodService.js",
+  "scripts": {
+    "test": "node FoodService.js"
+  },
+  "author": "SGamlath",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "mongoose": "^5.1.2"
+  }
+}
